@@ -15,18 +15,19 @@ void Board::generatePuzzle(std::string file) {
     std::fstream fs{file};
     if (fs.is_open()) {
         std::string row;
-        while (fs >> row) {
-            board.emplace_back(row);
+        int r;
+        while (std::getline(std::cin, row)) {            
+            for (int i = 0; i < (int)row.length(); i++) {
+                board[r][i] = row[i] - '0';
+            }            
+            r++;
         }
     }
 }
 
 Board::Board(std::string file, bool graphicsDisplay) {
     for (int i = 0; i < 9; i++) {
-        std::vector<int> row; 
-        for (int j = 0; j < 9; j++) {
-            row.emplace_back(0);
-        }
+        std::vector<int> row(9, 0);
         board.emplace_back(row);
     }
     if (file != "") generatePuzzle(file);

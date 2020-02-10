@@ -12,6 +12,7 @@ int main(int argc, char* argv[]) {
     std::string cmd;
     Board *b;
     while (std::cin >> cmd) {
+        std::cout << cmd << std::endl;
         if (cmd == "new") {
             delete b;
             std::string file;
@@ -22,6 +23,7 @@ int main(int argc, char* argv[]) {
                 if (fs.is_open()) {
                     b = new Board{file};
                     fs.close();
+                    std::cout << "New board made" << std::endl;
                 } else {
                     std::cerr << "File does not exists" << std::endl;
                 }

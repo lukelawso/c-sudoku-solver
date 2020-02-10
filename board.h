@@ -5,7 +5,8 @@
 #include <string>
 
 #include "textdisplay.h"
-#include "graphics.h"
+
+class Graphics;
 
 class Board {
     std::vector<std::vector<int>> board;
